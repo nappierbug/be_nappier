@@ -1,0 +1,41 @@
+import { Code2, Package, FileCode, Shield } from "lucide-react";
+    description: "Install Python, Git, Node.js, and thousands of other packages seamlessly."
+  },
+  {
+    icon: Shield,
+    title: "Scripting & Automation",
+    description: "Write and execute shell scripts to automate tasks and workflows."
+  }
+];
+
+export const Features = () => {
+  return (
+    <section className="px-6 py-24 relative">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <span className="text-primary terminal-glow">Core</span> Features
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Everything you need for a powerful terminal experience
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((feature, index) => (
+            <div 
+              key={index}
+              className="group bg-card border border-primary/20 rounded-lg p-8 hover:border-primary/50 transition-all duration-300 card-glow backdrop-blur-sm"
+            >
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
+                <feature.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-foreground">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
