@@ -1,0 +1,60 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const apps = [
+  {
+    name: "Termux",
+    highlight: "Full Linux environment, package manager, supports development tools",
+    tags: ["Advanced", "Developer-Friendly"]
+  },
+  {
+    name: "ReTerminal",
+    highlight: "Sleek Material 3 design, built on Termux's TerminalView, modern UI",
+    tags: ["Modern", "Beautiful"]
+  },
+  {
+    name: "TermOne Plus",
+    highlight: "Simple emulator, access built-in or custom shells, good for basic tasks",
+    tags: ["Beginner-Friendly", "Lightweight"]
+  }
+];
+
+export const PopularApps = () => {
+  return (
+    <section className="px-6 py-24 relative">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Popular <span className="text-primary terminal-glow">Terminal</span> Apps
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Choose the right terminal emulator for your needs
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {apps.map((app, index) => (
+            <Card 
+              key={index}
+              className="bg-card border-primary/20 p-6 hover:border-primary/50 transition-all duration-300 card-glow backdrop-blur-sm"
+            >
+              <h3 className="text-2xl font-bold text-primary mb-3">{app.name}</h3>
+              <p className="text-muted-foreground mb-4">{app.highlight}</p>
+              <div className="flex flex-wrap gap-2">
+                {app.tags.map((tag, tagIndex) => (
+                  <Badge 
+                    key={tagIndex}
+                    variant="outline"
+                    className="border-primary/30 text-primary"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
